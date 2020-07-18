@@ -3,6 +3,16 @@
 
 #include "quantum.h"
 
+#if defined(AUDIO_ENABLE) || (defined(MIDI_ENABLE) && defined(MIDI_BASIC))
+
+enum music_modes {
+  MUSIC_MODE_CHROMATIC,
+  MUSIC_MODE_GUITAR,
+  MUSIC_MODE_VIOLIN,
+  MUSIC_MODE_MAJOR,
+  NUMBER_OF_MODES
+};
+
 bool process_music(uint16_t keycode, keyrecord_t *record);
 
 bool is_music_on(void);
@@ -10,9 +20,10 @@ void music_toggle(void);
 void music_on(void);
 void music_off(void);
 
-void audio_on_user(void);
 void music_on_user(void);
 void music_scale_user(void);
+void music_all_notes_off(void);
+void music_mode_cycle(void);
 
 void matrix_scan_music(void);
 
@@ -23,5 +34,7 @@ void matrix_scan_music(void);
                            0 + (12*3), 2 + (12*3), 4 + (12*3), 5 + (12*3), 7 + (12*3), 9 + (12*3), 11 + (12*3), \
                            0 + (12*4), 2 + (12*4), 4 + (12*4), 5 + (12*4), 7 + (12*4), 9 + (12*4), 11 + (12*4), }
 #endif
+
+#endif // defined(AUDIO_ENABLE) || (defined(MIDI_ENABLE) && defined(MIDI_BASIC))
 
 #endif

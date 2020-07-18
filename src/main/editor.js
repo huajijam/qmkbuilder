@@ -10,7 +10,7 @@ class Editor extends React.Component {
 
 		// Initialize notification for leaving page.
 		window.onbeforeunload = () => {
-			return 'Are you sure you want to leave the page? You may have unsaved changes.';
+			return '你确定要离开本页面?所有未保存进度将丢失';
 		};
 	}
 

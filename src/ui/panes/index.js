@@ -21,7 +21,7 @@ class Panes extends React.Component {
 				<Tabs
 					state={ state }/>
 				<div className='panes-content'>
-					{ state.screen === C.SCREEN_WIRING && <Wiring state={ state }/> }
+					{ state.screen === C.SCREEN_WIRING && <WIRING state={ state }/> }
 					{ state.screen === C.SCREEN_PINS && <Pins state={ state }/> }
 					{ state.screen === C.SCREEN_KEYMAP && <Keymap state={ state }/> }
 					{ state.screen === C.SCREEN_MACROS && <Macros state={ state }/> }

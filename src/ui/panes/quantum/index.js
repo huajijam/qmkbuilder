@@ -12,14 +12,14 @@ class Quantum extends React.Component {
 		const keyboard = state.keyboard;
 
 		return <div className='pane-quantum'>
-			<strong>Do not touch this unless you know what you're doing!</strong>
+			<strong>除非你知道你在做什么,不要更改此文件</strong>
 			<br/>
-			Edit custom Quantum functions.
+			编辑自定义程序
 			<div style={{ height: '0.5rem' }}/>
 			<button
 				className='light'
 				onClick={ () => { keyboard.quantum = C.QUANTUM_DEFAULT; state.update(); } }>
-				Reset to default
+				重置
 			</button>
 			<div style={{ height: '0.5rem' }}/>
 			<div className='pane-quantum-editor'>

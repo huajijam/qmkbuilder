@@ -60,12 +60,12 @@ class Settings extends React.Component {
 		}
 		if (list.length === 0) {
 			list.push(<div style={{ padding: '1rem' }} key={ -1 }>
-				No errors or warnings!
+				没有错误与警告
 			</div>);
 		}
 
 		return <div className='pane-settings'>
-			Configure your settings.
+			配置你的键盘
 			<div style={{ height: '0.5rem' }}/>
 			<h2 style={{ width: '8rem', marginRight: '0.8rem' }}>Layout Name</h2>
 			<input
@@ -74,6 +74,7 @@ class Settings extends React.Component {
 				value={ keyboard.settings.name }
 				onChange={ e => keyboard.setSetting('name', e.target.value) }/>
 			<Help>
+				为你的配列命名
 				Give your layout a name!
 			</Help>
 			<div style={{ height: '0.5rem' }}/>
@@ -114,6 +115,7 @@ class Settings extends React.Component {
 					onChange={ v => keyboard.setSetting('rgbNum', v) }/>
 			</div>
 			<Help>
+				WS2812/SK6812灯珠数量
 				The number of WS2812 LEDs, if any.
 			</Help>
 			<div style={{ height: '0.5rem' }}/>
@@ -127,16 +129,17 @@ class Settings extends React.Component {
 					onChange={ v => keyboard.setSetting('backlightLevels', v) }/>
 			</div>
 			<Help>
-				The number of backlight levels.
+				LED背光亮度(0-15)
+				The number of backlight levels.(0-15)
 			</Help>
 			<div style={{ height: '1.5rem' }}/>
-			Save your layout.
+			保存你的配置文件
 			<div style={{ height: '0.5rem' }}/>
 			<button onClick={ this.save }>
-				Save Configuration
+				保存.json配置文件
 			</button>
 			<div style={{ height: '1.5rem' }}/>
-			Check errors and warnings.
+			错误与警告
 			<div style={{ height: '0.5rem' }}/>
 			<div className='pane-settings-list'>
 				{ list }

@@ -13,7 +13,7 @@ class Pins extends React.Component {
 		const keyboard = state.keyboard;
 
 		return <div className='pane-pins'>
-			Choose the controller on the keyboard.
+			选择PCB上的主控MCU
 			<div style={{ height: '0.5rem' }}/>
 			<select
 				style={{ width: '10rem' }}
@@ -31,7 +31,7 @@ class Pins extends React.Component {
 				<strong>AT90USB1286</strong>: Teensy++ 2.0
 			</Help>
 			<div style={{ height: '1.5rem' }}/>
-			Configure the row and column pins.
+			修改Col与Row的引脚定义
 			<div style={{ height: '0.5rem' }}/>
 			<div className='clear'>
 				<div className='float-left' style={{ width: '50%' }}>
@@ -76,7 +76,7 @@ class Pins extends React.Component {
 				</div>
 			</div>
 			<div style={{ height: '1.5rem' }}/>
-			Configure LED pins.
+			灯光引脚
 			<div style={{ height: '0.5rem' }}/>
 			<h2 style={{ width: '6rem', marginRight: '0.8rem' }}>Num Lock</h2>
 			<Chooser
@@ -113,7 +113,7 @@ class Pins extends React.Component {
 				onChange={ p => keyboard.setPin('kana', p) }
 				pin={ keyboard.pins.kana }/>
 			<div style={{ height: '0.5rem' }}/>
-			<h2 style={{ width: '6rem', marginRight: '0.8rem' }}>Backlight</h2>
+			<h2 style={{ width: '6rem', marginRight: '0.8rem' }}>背光</h2>
 			<Chooser
 				noPin
 				backlight
@@ -121,7 +121,7 @@ class Pins extends React.Component {
 				onChange={ p => keyboard.setPin('led', p) }
 				pin={ keyboard.pins.led }/>
 			<div style={{ height: '0.5rem' }}/>
-			<h2 style={{ width: '6rem', marginRight: '0.8rem' }}>WS2812 Strip</h2>
+			<h2 style={{ width: '6rem', marginRight: '0.8rem' }}>WS2812灯珠</h2>
 			<Chooser
 				noPin
 				state={ state }

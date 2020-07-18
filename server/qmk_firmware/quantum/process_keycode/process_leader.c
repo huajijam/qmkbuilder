@@ -1,3 +1,5 @@
+#ifndef DISABLE_LEADER
+
 #include "process_leader.h"
 
 __attribute__ ((weak))
@@ -36,3 +38,5 @@ bool process_leader(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+#endif

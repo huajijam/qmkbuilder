@@ -114,21 +114,21 @@ class Compile extends React.Component {
 		const keyboard = state.keyboard;
 
 		return <div className='pane-compile'>
-			Download the .hex file to flash to your keyboard.
+			下载.hex固件来刷入你的键盘
 			<div style={{ height: '0.5rem' }}/>
 			<button
 				disabled={ !keyboard.valid || state.ui.get('compile-working', false) }
 				onClick={ this.downloadHex }>
-				Download .hex
+				下载固件.hex
 			</button>
 			<div style={{ height: '1.5rem' }}/>
-			Or download the source files.
+			下载源码
 			<div style={{ height: '0.5rem' }}/>
 			<button
 				className='light'
 				disabled={ !keyboard.valid || state.ui.get('compile-working', false) }
 				onClick={ this.downloadZip }>
-				Download .zip
+				下载源码.zip
 			</button>
 		</div>;
 	}

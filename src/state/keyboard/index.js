@@ -318,7 +318,7 @@ class Keyboard {
 
 		// Make sure every key has a unique position in the matrix.
 		if (Object.keys(this.wiring).length !== this.keys.length) {
-			this.errors.push('Not every key has a unique position in the wiring matrix.');
+			this.errors.push('Matrix布线图存在冲突');
 			this.valid = false;
 		}
 
@@ -350,7 +350,7 @@ class Keyboard {
 		if (this.pins.rgb && usedPins.includes(this.pins.rgb)) this.valid = overlappingPins = false;
 		usedPins.push(this.pins.rgb);
 		if (!overlappingPins) {
-			this.errors.push('There are overlapping pins.');
+			this.errors.push('存在引脚冲突');
 		}
 
 		// Check to see if there are all the recommended keys in the keymap.
@@ -366,10 +366,10 @@ class Keyboard {
 				missing.push(Keycode.getDefault(recommended).getName());
 			}
 		}
-		if (missing.length) this.warnings.push('Your keymap is missing the key' + (missing.length > 1 ? 's' : '')  + ': ' + missing.join(', ') + '.');
+		if (missing.length) this.warnings.push('你的键位图缺少' + (missing.length > 1 ? 's' : '')  + ': ' + missing.join(', ') + '键');
 
 		// Check to see if there is a soft reset key.
-		if (!inKeymap.has('RESET')) this.warnings.push('Your keymap is missing a soft reset key.');
+		if (!inKeymap.has('RESET')) this.warnings.push('你的键位图缺少一个软重启键(Reset)');
 	}
 
 	/*

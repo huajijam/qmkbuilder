@@ -31,7 +31,7 @@ class Main extends React.Component {
 				const deserialized = JSON.parse(contents);
 
 				// Ensure the version is correct.
-				if (deserialized.version !== C.VERSION) throw 'version mismatch';
+				if (deserialized.version !== C.VERSION) throw '版本不匹配';
 
 				// Build a new keyboard.
 				const keyboard = Keyboard.deserialize(state, deserialized.keyboard);
@@ -42,7 +42,7 @@ class Main extends React.Component {
 				});
 			} catch (e) {
 				console.error(e);
-				state.error('Invalid configuration');
+				state.error('无效设置');
 			}
 		});
 	}
@@ -61,7 +61,7 @@ class Main extends React.Component {
 
 			// Make sure the data is valid.
 			if (keyboard.keys.length == 0) {
-				throw 'empty layout';
+				throw '配列为空';
 			}
 
 			state.update({
@@ -70,7 +70,7 @@ class Main extends React.Component {
 			});
 		} catch (e) {
 			console.error(e);
-			state.error('Invalid layout');
+			state.error('无效配列');
 		}
 	}
 
@@ -85,14 +85,14 @@ class Main extends React.Component {
 		Request
 			.get(C.LOCAL.PRESETS + id + '.json')
 			.end((err, res) => {
-				if (err) return state.error('Unable to load preset.');
+				if (err) return state.error('无法加载预设');
 
 				try {
 					// Deserialize the contents.
 					const deserialized = JSON.parse(res.text);
 
 					// Ensure the version is correct.
-					if (deserialized.version !== C.VERSION) throw 'version mismatch';
+					if (deserialized.version !== C.VERSION) throw '版本不匹配';
 
 					// Build a new keyboard.
 					const keyboard = Keyboard.deserialize(state, deserialized.keyboard);
@@ -103,7 +103,7 @@ class Main extends React.Component {
 					});
 				} catch (e) {
 					console.error(e);
-					state.error('Invalid configuration');
+					state.error('无效设置');
 				}
 			});
 	}
@@ -112,26 +112,26 @@ class Main extends React.Component {
 		const state = this.props.state;
 
 		return <div>
-			<h3>Upload Keyboard Firmware Builder configuration</h3>
+			<h3>载入配置文件</h3>
 			<button
 				className='block'
 				onClick={ this.upload }>
-				Upload
+				载入
 			</button>
 			<br/><br/>
-			<h3>Or import from keyboard-layout-editor.com</h3>
+			<h3>导入<a href='http://www.keyboard-layout-editor.com/' target='_blank'>keyboard-layout-editor.com(KLE)</a>的键位</h3>
 			<textarea
 				className='kle'
-				placeholder='Paste layout here...'
+				placeholder='在此粘贴你的Layout(Raw Data)'
 				value={ state.ui.get('kle', '') }
 				onChange={ state.ui.set('kle') }/>
 			<button
 				className='block'
 				onClick={ this.useKLE }>
-				Import
+				导入
 			</button>
 			<br/><br/>
-			<h3>Or choose a preset layout</h3>
+			<h3>选择一个现有预设</h3>
 			{(() => {
 				const presets = [];
 				for (const preset in C.PRESETS) {
