@@ -10,8 +10,8 @@ module.exports = `
 #define PRODUCT_ID      0x6060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    QMK
-#define PRODUCT         keyboard
-#define DESCRIPTION     Keyboard
+#define PRODUCT         %kbname%
+#define DESCRIPTION     %kbname%
 
 /* key matrix size */
 #define MATRIX_ROWS %rows%

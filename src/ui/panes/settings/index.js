@@ -74,8 +74,19 @@ class Settings extends React.Component {
 				value={ keyboard.settings.name }
 				onChange={ e => keyboard.setSetting('name', e.target.value) }/>
 			<Help>
-				为你的配列命名
+				为你的配列命名<br/>
 				Give your layout a name!
+			</Help>
+			<div style={{ height: '0.5rem' }}/>
+			<h2 style={{ width: '8rem', marginRight: '0.8rem' }}>keyboard Name</h2>
+			<input
+				style={{ width: '8rem' }}
+				type='text'
+				value={ keyboard.settings.kbname }
+				onChange={ e => keyboard.setSetting('kbname', e.target.value) }/>
+			<Help>
+				为你的键盘命名<br/>
+				Give your keyboard a name!
 			</Help>
 			<div style={{ height: '0.5rem' }}/>
 			<h2 style={{ width: '8rem', marginRight: '0.8rem' }}>Bootloader Size</h2>
@@ -115,7 +126,7 @@ class Settings extends React.Component {
 					onChange={ v => keyboard.setSetting('rgbNum', v) }/>
 			</div>
 			<Help>
-				WS2812/SK6812灯珠数量
+				WS2812/SK6812灯珠数量<br/>
 				The number of WS2812 LEDs, if any.
 			</Help>
 			<div style={{ height: '0.5rem' }}/>
@@ -129,7 +140,7 @@ class Settings extends React.Component {
 					onChange={ v => keyboard.setSetting('backlightLevels', v) }/>
 			</div>
 			<Help>
-				LED背光亮度(0-15)
+				LED背光亮度(0-15)<br/>
 				The number of backlight levels.(0-15)
 			</Help>
 			<div style={{ height: '1.5rem' }}/>

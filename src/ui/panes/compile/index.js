@@ -37,7 +37,7 @@ class Compile extends React.Component {
 
 				if (err) {
 					console.error(err);
-					state.error('Unable to connect to API server.');
+					state.error('无法连接API服务器');
 					state.ui.set('compile-working', false);
 					return;
 				}
@@ -45,7 +45,7 @@ class Compile extends React.Component {
 				// Check if there was an error.
 				if (res.error) {
 					console.error(res.error);
-					state.error('Server error:\n' + res.error);
+					state.error('服务器出现错误:\n' + res.error);
 					state.ui.set('compile-working', false);
 					return;
 				}
@@ -76,7 +76,7 @@ class Compile extends React.Component {
 		JSZipUtils.getBinaryContent('/files/firmware.zip', (err, data) => {
 			if (err) {
 				console.error(err);
-				state.error('Unable to retrieve files');
+				state.error('无法检索到文件');
 				state.ui.set('compile-working', false);
 				return;
 			}
@@ -98,12 +98,12 @@ class Compile extends React.Component {
 					state.ui.set('compile-working', false);
 				}).catch(e => {
 					console.error(err);
-					state.error('Unable to generate files');
+					state.error('无法生成文件');
 					state.ui.set('compile-working', false);
 				});
 			}).catch(e => {
 				console.error(err);
-				state.error('Unable to retrieve files');
+				state.error('无法检索到文件');
 				state.ui.set('compile-working', false);
 			});
 		});
@@ -114,7 +114,7 @@ class Compile extends React.Component {
 		const keyboard = state.keyboard;
 
 		return <div className='pane-compile'>
-			下载.hex固件来刷入你的键盘
+			下载.hex固件刷入键盘
 			<div style={{ height: '0.5rem' }}/>
 			<button
 				disabled={ !keyboard.valid || state.ui.get('compile-working', false) }
