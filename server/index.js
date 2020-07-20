@@ -9,16 +9,7 @@ const co = require('co');
 // Get environment variables.
 const envTMP = process.env.TMP || '/tmp/qmk-';
 const envPORT = process.env.PORT || 80;
-const envQMK = process.env.QMK || null;
-const envSTATIC = process.env.STATIC || null;
-if (envQMK === null) {
-  console.error('No QMK environment variable specified');
-  process.exit(1);
-}
-if (envSTATIC === null) {
-  console.error('No STATIC environment variable specified');
-  process.exit(1);
-}
+const envQMK = '/usr/local/qmk';
 
 // Create the express app.
 const app = Express();
@@ -28,13 +19,11 @@ app.use(BodyParser.urlencoded({ extended: true }));
 // Allow cross-origin requests.
 app.all('*', (req, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-	res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials');
+    res.header('Access-Control-Allow-Credentials', 'true');
 	next();
 });
-
-// Serve static content.
-app.use(Express.static(envSTATIC));
 
 // Set up the /build route.
 app.post('/build', (req, res) => {
@@ -43,7 +32,7 @@ app.post('/build', (req, res) => {
 
 	// Create a temporary directory.
 	const key = Crypto.randomBytes(16).toString('hex');
-  const tmpdir = envTMP + key;
+    const tmpdir = envTMP + key;
 
 	// Setup helper functions.
 	const clean = () => {
@@ -104,11 +93,3 @@ app.post('/build', (req, res) => {
 
 // Start listening.
 app.listen(envPORT, () => console.log('Listening on port ' + envPORT + '...'));
-
-// Exit on SIGINT and SIGTERM.
-process.on('SIGTERM', shutdown);
-process.on('SIGINT', shutdown);
-function shutdown() {
-  // TODO: This is not a clean shutdown.
-  process.exit(0);
-}

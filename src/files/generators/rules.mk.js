@@ -24,11 +24,19 @@ class RulesMK extends Generator {
 			case C.BOOTLOADER_8192: bootloaderSize = '8192'; break;
 		}
 
+		let chooseBootMagic;
+		switch (keyboard.settings.chooseBootMagic) {
+			case C.BootMagic_yes: chooseBootMagic = 'yes'; break;
+			case C.BootMagic_no: chooseBootMagic = 'no'; break;
+			case C.BootMagic_lite: chooseBootMagic = 'lite'; break;
+		}
+
 		return {
 			'mcu': mcu,
 			'bootloader_size': bootloaderSize,
 			'use_backlight': keyboard.pins.led ? 'yes' : 'no',
-			'use_rgb': keyboard.pins.rgb ? 'yes' : 'no'
+			'use_rgb': keyboard.pins.rgb ? 'yes' : 'no' ,
+			'chooseBootMagic': chooseBootMagic
 		};
 	}
 

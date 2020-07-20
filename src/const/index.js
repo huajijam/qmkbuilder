@@ -102,8 +102,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	PRESETS: Presets,
 
 	// Local settings.
-	LOCAL: Local
-
+	LOCAL: Local,
+	
+	//Bootmagic 
+	BootMagic_yes : 0,
+	BootMagic_no : 1,
+	BootMagic_lite : 2
 };
 
 module.exports = C;

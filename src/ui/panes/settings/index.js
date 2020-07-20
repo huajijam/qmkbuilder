@@ -154,8 +154,22 @@ class Settings extends React.Component {
 					onChange={ v => keyboard.setSetting('rgbVol', v) }/>
 			</div>
 			<Help>
-			    WS2812/Sk6812RGB背光亮度(0-255)<br/>
-				The number of WS2812/Sk6812 RGB Brightness(0-255)
+	            WS2812/Sk6812灯珠亮度(0-255)<br/>
+				The number of WS2812/Sk6812 LEDs Brightness(0-255)
+			</Help>
+			<div style={{ height: '0.5rem' }}/>
+			<h2 style={{ width: '8rem', marginRight: '0.8rem' }}>BootMagic</h2>
+			<select
+				style={{ width: '8rem' }}
+				value={ keyboard.settings.chooseBootMagic }
+				onChange={ e => keyboard.setSetting('chooseBootMagic', parseInt(e.target.value)) }>
+				<option value={ C.BootMagic_yes }>Yes</option>
+				<option value={ C.BootMagic_no }>No</option>
+				<option value={ C.BootMagic_lite }>Lite</option>
+			</select>
+			<Help>
+            开启/关闭Bootmagic (Size+1000)<br/>
+			Enable/Dsiable Bootmagic (Size+1000)
 			</Help>
 			<div style={{ height: '1.5rem' }}/>
 			保存你的配置文件

@@ -41,7 +41,9 @@ class Keyboard {
 			bootloaderSize: C.BOOTLOADER_4096,
 			rgbNum: 0,
 			backlightLevels: 3,
-			kbname: ''
+			kbname: '',
+			rgbVol: 255,
+			chooseBootMagic:C.BootMagic_yes
 		};
 
 		this.valid = false;
