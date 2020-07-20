@@ -143,6 +143,20 @@ class Settings extends React.Component {
 				LED背光亮度(0-15)<br/>
 				The number of backlight levels.(0-15)
 			</Help>
+			<div style={{ height: '0.5rem' }}/>
+			<h2 style={{ width: '8rem', marginRight: '0.8rem' }}>RGB Brightness</h2>
+			<div style={{ width: '8rem', display: 'inline-block', textAlign: 'left' }}>
+				<NumberBox
+					style={{ width: '3.5rem' }}
+					min='0'
+					max='255'
+					value={ keyboard.settings.rgbVol }
+					onChange={ v => keyboard.setSetting('rgbVol', v) }/>
+			</div>
+			<Help>
+			    WS2812/Sk6812RGB背光亮度(0-255)<br/>
+				The number of WS2812/Sk6812 RGB Brightness(0-255)
+			</Help>
 			<div style={{ height: '1.5rem' }}/>
 			保存你的配置文件
 			<div style={{ height: '0.5rem' }}/>
